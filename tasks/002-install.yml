@@ -1,0 +1,10 @@
+---
+- name: Install zabbix-proxy-pgsql
+  apt:
+    name: zabbix-proxy-pgsql
+    state: latest
+
+- name: Install zabbix-sql-scripts
+  apt:
+    name: zabbix-sql-scripts
+    state: latest

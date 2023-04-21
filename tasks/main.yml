@@ -1,0 +1,13 @@
+---
+- include_tasks: 001-repository.yml
+  tags:
+    - zabbix_proxy_repository
+
+- include_tasks: 002-install.yml
+  tags:
+    - zabbix_proxy_install
+
+- include_tasks: 003-configure.yml
+  tags:
+    - zabbix_proxy_configure
+

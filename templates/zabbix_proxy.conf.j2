@@ -1,0 +1,23 @@
+SocketDir=/var/run/zabbix
+PidFile=/run/zabbix/zabbix_proxy.pid
+SNMPTrapperFile=/var/log/snmptrap/snmptrap.log
+LogFile=/var/log/zabbix/zabbix_proxy.log
+LogFileSize=0
+Timeout=5
+
+
+ExternalScripts=/var/lib/zabbix/externalscripts
+Server={{ host_zabbix_server }},127.0.0.1
+Hostname={{ hostname }}
+DBName={{ zabbix_proxy_database_name }}
+DBUser={{ zabbix_proxy_database_user }}
+LogSlowQueries=3000
+StatsAllowedIP=127.0.0.1
+
+
+{% if active_psk_connection %}
+TLSConnect=psk
+TLSAccept=unencrypted,psk
+TLSPSKIdentity={{ psk_identity }}
+TLSPSKFile={{ zabbix_ssl_directory }}/zabbix_psk
+{% endif %}

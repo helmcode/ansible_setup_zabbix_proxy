@@ -1,0 +1,26 @@
+---
+- name: Create Zabbix SSL Directory
+  file:
+    path: "{{ zabbix_ssl_directory }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Copy Zabbix PSK
+  template:
+    src: zabbix_psk.j2
+    dest: "{{ zabbix_ssl_directory }}/zabbix_psk"
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart zabbix-proxy
+
+- name: Copy Zabbix Proxy Config
+  template:
+    src: zabbix_proxy.conf.j2
+    dest: /etc/zabbix/zabbix_proxy.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart zabbix-proxy

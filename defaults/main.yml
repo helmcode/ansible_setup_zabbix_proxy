@@ -1,0 +1,11 @@
+---
+host_zabbix_server:
+hostname:
+zabbix_proxy_database_name:
+zabbix_proxy_database_user:
+
+
+active_psk_connection: False
+psk_identity:
+psk_hash:
+zabbix_ssl_directory:
