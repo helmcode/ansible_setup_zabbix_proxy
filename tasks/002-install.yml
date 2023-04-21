@@ -8,3 +8,13 @@
   apt:
     name: zabbix-sql-scripts
     state: latest
+
+- name: Install Postgres
+  apt:
+    name: postgresql
+    state: latest
+
+- name: Install Postgres Contrib
+  apt:
+    name: postgresql-contrib
+    state: latest
